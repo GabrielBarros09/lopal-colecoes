@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade Object</title>
+</head>
+
+<body>
+    <button type="button" onclick="cadastrarAlunos()">Cadastrar Aluno</button>
+    <button type="button" onclick="removerAlunosCadastrados()">Remover Último Aluno</button>
+    <br>
+    <output></output>
+</body>
+<script>
+    let alunos = [];
+
+    
+    function imprimirAlunos() {
+        let outputContent = '<h1> Lista de Alunos</h1>';
+        for (let i = 0; i < alunos.length; i++) {
+            outputContent += `Nome: ${alunos[i].nome} | Idade: ${alunos[i].idade} | SESI: ${alunos[i].sesi} | Tem Pet: ${alunos[i].temPet}<br>`;
+        }
+        document.querySelector('output').innerHTML = outputContent;
+    }
+
+    function cadastrarAlunos() {
+        let nome = prompt("Informe seu nome: ");
+        let idade = prompt("Informe sua idade: ");
+        let sesi = prompt("Informe seu SESI: ");
+        let temPet = prompt("Você tem Pet? (SIM ou NÃO): ");
+
+        if (nome, idade, sesi, temPet) {
+            alunos.push({ nome, idade, sesi, temPet });
+            imprimirAlunos();
+
+            opcaoUsuario = confirm("Deseja adicionar mais um aluno(a)?")
+
+            while(opcaoUsuario){
+                cadastrarAlunos();
+            }
+
+            imprimirAlunos();
+        }
+    }
+
+    
+
+    function removerAlunosCadastrados() {
+        if (alunos.length > 0) {
+            alunos.pop(); 
+            imprimirAlunos();
+        }
+    }
+</script>
+
+</html>
